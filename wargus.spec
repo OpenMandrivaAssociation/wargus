@@ -6,6 +6,8 @@ Source0:	http://launchpad.net/wargus/trunk/%{version}/+download/%{name}_%{versio
 URL:		http://wargus.sourceforge.net
 Group:		Games/Strategy
 License:	GPLv2
+Patch0:		wargus-2.2.6-png.patch
+Patch1:		wargus-2.2.6-linkage.patch
 BuildRequires:	cmake
 BuildRequires:	png-devel
 BuildRequires:	zlib-devel
@@ -44,6 +46,8 @@ The engine is tested and it does work.
 
 %prep
 %setup -q -n %{name}_%{version}.orig
+%patch0 -p1
+%patch1 -p1
 
 %build
 %cmake
