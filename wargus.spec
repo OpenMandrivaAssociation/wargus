@@ -1,6 +1,6 @@
 Name:		wargus
 Summary:	Warcraft II for the Stratagus game engine (Needs WC2 DOS CD)
-Version:	2.2.6
+Version:	2.2.7
 Release:	%mkrel 1
 Source0:	http://launchpad.net/wargus/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
 URL:		http://wargus.sourceforge.net
