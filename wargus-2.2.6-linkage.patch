@@ -1,0 +1,12 @@
+diff -urN wargus_2.2.6.orig/CMakeLists.txt wargus_2.2.6.orig-patched/CMakeLists.txt
+--- wargus_2.2.6.orig/CMakeLists.txt	2011-12-25 00:29:37.000000000 +1100
++++ wargus_2.2.6.orig-patched/CMakeLists.txt	2012-01-31 00:45:07.311028145 +1100
+@@ -150,7 +150,7 @@
+ 
+ if(NOT WIN32)
+ 	include_directories(${GTK2_INCLUDE_DIRS})
+-	set(wargus_LIBS ${wargus_LIBS} ${GTK2_LIBRARIES})
++	set(wargus_LIBS ${wargus_LIBS} ${GTK2_LIBRARIES} -lX11)
+ endif()
+ 
+ if (NOT WIN32 AND NOT MAEMO)
