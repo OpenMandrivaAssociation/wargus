@@ -1,18 +1,16 @@
 Name:		wargus
 Summary:	Warcraft II for the Stratagus game engine (Needs WC2 DOS CD)
 Version:	2.2.7
-Release:	%mkrel 1
+Release:	1
 Source0:	http://launchpad.net/wargus/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
 URL:		http://wargus.sourceforge.net
 Group:		Games/Strategy
 License:	GPLv2
-Patch0:		wargus-2.2.6-png.patch
-Patch1:		wargus-2.2.6-linkage.patch
 BuildRequires:	cmake
-BuildRequires:	png-devel
+BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(libpng)
 BuildRequires:	zlib-devel
 BuildRequires:	stratagus-devel = %{version}
-BuildRequires:	gtk2-devel
 Requires:	ffmpeg2theora
 Requires:	cdparanoia
 Requires:	stratagus = %{version}
@@ -46,22 +44,15 @@ The engine is tested and it does work.
 
 %prep
 %setup -q -n %{name}_%{version}.orig
-# %patch0 -p1
-# %patch1 -p1
 
 %build
 %cmake
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std -C build
 
-%clean
-%__rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README doc/*
 %{_gamesbindir}/%{name}
 %{_bindir}/wartool
@@ -69,4 +60,17 @@ The engine is tested and it does work.
 %{_gamesdatadir}/stratagus/%{name}
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
+
+
+
+%changelog
+* Thu Sep 27 2012 Zombie Ryushu <ryushu@mandriva.org> 2.2.7-1mdv2012.0
++ Revision: 817687
+- remove old patches
+- Upgrade to 2.2.7
+
+* Mon Jan 30 2012 Andrey Bondrov <abondrov@mandriva.org> 2.2.6-1
++ Revision: 769857
+- Add patch0 and patch1 to fix build in Cooker (DSO and png issues)
+- imported package wargus
 
