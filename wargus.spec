@@ -13,10 +13,10 @@ BuildRequires:	pkgconfig(libpng)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:	stratagus-devel = %{version}
 
-Requires:	ffmpeg2theora
 Requires:	cdparanoia
 Requires:	stratagus = %{version}
-Recommends: ffmpeg
+Recommends:	ffmpeg
+Recommends:	ffmpeg2theora
 
 %description
 Wargus is a Warcraft2 Mod that allows you to play Warcraft2 with the Stratagus
