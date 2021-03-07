@@ -7,6 +7,7 @@ URL:		http://wargus.sourceforge.net
 Group:		Games/Strategy
 License:	GPLv2
 BuildRequires:	cmake
+BuildRequires:	ninja
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:  pkgconfig(zlib)
@@ -47,12 +48,13 @@ The engine is tested and it does work.
 %prep
 %autosetup -p1
 
+%cmake -G Ninja
+
 %build
-%cmake
-%make_build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 %files
 %doc README.md doc/*
