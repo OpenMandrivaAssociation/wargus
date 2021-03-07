@@ -55,7 +55,7 @@ The engine is tested and it does work.
 %make_install -C build
 
 %files
-%doc README doc/*
+%doc README.md doc/*
 %{_gamesbindir}/%{name}
 %{_bindir}/wartool
 %{_bindir}/pudconvert
