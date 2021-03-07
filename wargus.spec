@@ -3,7 +3,7 @@ Summary:	Warcraft II for the Stratagus game engine (Needs WC2 DOS CD)
 Version:	3.0.0
 Release:	1
 Source0:	https://github.com/Wargus/wargus/archive/v%{version}/%{name}-%{version}.tar.gz
-URL:		http://wargus.sourceforge.net
+URL:		https://stratagus.com/index.html
 Group:		Games/Strategy
 License:	GPLv2
 BuildRequires:	cmake
@@ -65,8 +65,6 @@ The engine is tested and it does work.
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
 
-
-
 %changelog
 * Thu Sep 27 2012 Zombie Ryushu <ryushu@mandriva.org> 2.2.7-1mdv2012.0
 + Revision: 817687
@@ -77,4 +75,3 @@ The engine is tested and it does work.
 + Revision: 769857
 - Add patch0 and patch1 to fix build in Cooker (DSO and png issues)
 - imported package wargus
-
