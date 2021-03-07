@@ -3,19 +3,20 @@ Summary:	Warcraft II for the Stratagus game engine (Needs WC2 DOS CD)
 Version:	3.0.0
 Release:	1
 Source0:	https://github.com/Wargus/wargus/archive/v%{version}/%{name}-%{version}.tar.gz
-URL:		http://wargus.sourceforge.net
+URL:		https://stratagus.com/index.html
 Group:		Games/Strategy
 License:	GPLv2
 BuildRequires:	cmake
+BuildRequires:	ninja
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:	stratagus-devel = %{version}
 
-Requires:	ffmpeg2theora
 Requires:	cdparanoia
 Requires:	stratagus = %{version}
-Recommends: ffmpeg
+Recommends:	ffmpeg
+Recommends:	ffmpeg2theora
 
 %description
 Wargus is a Warcraft2 Mod that allows you to play Warcraft2 with the Stratagus
@@ -47,12 +48,13 @@ The engine is tested and it does work.
 %prep
 %autosetup -p1
 
+%cmake -G Ninja
+
 %build
-%cmake
-%make_build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
 %files
 %doc README.md doc/*
@@ -62,8 +64,6 @@ The engine is tested and it does work.
 %{_gamesdatadir}/stratagus/%{name}
 %{_datadir}/pixmaps/%{name}.png
 %{_datadir}/applications/%{name}.desktop
-
-
 
 %changelog
 * Thu Sep 27 2012 Zombie Ryushu <ryushu@mandriva.org> 2.2.7-1mdv2012.0
@@ -75,4 +75,3 @@ The engine is tested and it does work.
 + Revision: 769857
 - Add patch0 and patch1 to fix build in Cooker (DSO and png issues)
 - imported package wargus
-
