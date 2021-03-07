@@ -1,19 +1,21 @@
 Name:		wargus
 Summary:	Warcraft II for the Stratagus game engine (Needs WC2 DOS CD)
-Version:	2.2.7
-Release:	2
-Source0:	http://launchpad.net/wargus/trunk/%{version}/+download/%{name}_%{version}.orig.tar.gz
+Version:	3.0.0
+Release:	1
+Source0:	https://github.com/Wargus/wargus/archive/v%{version}/%{name}-%{version}.tar.gz
 URL:		http://wargus.sourceforge.net
 Group:		Games/Strategy
 License:	GPLv2
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libpng)
-BuildRequires:	zlib-devel
+BuildRequires:  pkgconfig(zlib)
 BuildRequires:	stratagus-devel = %{version}
+
 Requires:	ffmpeg2theora
 Requires:	cdparanoia
 Requires:	stratagus = %{version}
+Recommends: ffmpeg
 
 %description
 Wargus is a Warcraft2 Mod that allows you to play Warcraft2 with the Stratagus
@@ -43,14 +45,14 @@ Warcraft2 data. Even if error messages are related to wrong/missing scripts.
 The engine is tested and it does work.
 
 %prep
-%setup -q -n %{name}_%{version}.orig
+%autosetup -p1
 
 %build
 %cmake
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 %files
 %doc README doc/*
