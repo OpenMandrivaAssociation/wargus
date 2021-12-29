@@ -12,6 +12,7 @@ BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:	stdc++-static-devel
+BuildRequires:  %{_lib}storm-devel
 BuildRequires:	stratagus-devel = %{version}
 
 Requires:	cdparanoia
